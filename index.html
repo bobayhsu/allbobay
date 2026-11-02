@@ -522,7 +522,7 @@
     }
   
     /* ===== 手機不跑版修正版 ===== */
-@media (max-width: 768px), (pointer: coarse) and (max-width: 1400px) {
+@media (max-width: 768px) {
       html, body {
         width: 100%;
         min-width: 0;
@@ -888,9 +888,9 @@
 </style>
 
 <style>
-/* 手機橫向與直向都使用真正的標題區塊 */
+/* 手機標題改用真正的 HTML 區塊，不再用偽元素絕對定位 */
 .mobile-resource-heading { display: none; }
-@media (max-width: 768px), (pointer: coarse) and (max-width: 1400px) {
+@media (max-width: 768px), (pointer: coarse) and (min-width: 769px) and (max-width: 1400px) {
   .upper-layout {
     display: block !important;
     padding-top: 0 !important;
@@ -916,6 +916,44 @@
     color: #61718a;
     font-size: 14px;
     line-height: 1.65;
+  }
+}
+</style>
+<style>
+/* 手機橫向：標題完整顯示，下面維持桌機的雙欄卡片 */
+@media (pointer: coarse) and (min-width: 769px) and (max-width: 1400px) {
+  .slide {
+    width: min(96vw, 1180px);
+    margin: 12px auto;
+    padding: 0 20px 24px;
+  }
+  .upper-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 14px 18px !important;
+    padding-top: 0 !important;
+    min-height: 0 !important;
+  }
+  .upper-layout::before,
+  .upper-layout::after { content: none !important; display: none !important; }
+  .mobile-resource-heading {
+    grid-column: 1 / -1;
+    padding: 18px 4px 10px;
+  }
+  .mobile-resource-heading h1 {
+    font-size: clamp(25px, 3.3vw, 38px);
+    line-height: 1.24;
+  }
+  .mobile-resource-heading p {
+    font-size: clamp(13px, 1.55vw, 16px);
+    line-height: 1.55;
+  }
+  .upper-layout > .column {
+    min-width: 0;
+  }
+  .upper-layout summary {
+    font-size: clamp(14px, 1.7vw, 18px);
+    line-height: 1.4;
   }
 }
 </style>
