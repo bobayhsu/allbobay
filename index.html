@@ -888,9 +888,9 @@
 </style>
 
 <style>
-/* 手機標題改用真正的 HTML 區塊，不再用偽元素絕對定位 */
+/* 手機橫向與直向都使用真正的標題區塊 */
 .mobile-resource-heading { display: none; }
-@media (max-width: 768px) {
+@media (max-width: 768px), (pointer: coarse) and (max-width: 1400px) {
   .upper-layout {
     display: block !important;
     padding-top: 0 !important;
