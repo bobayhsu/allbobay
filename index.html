@@ -1407,7 +1407,18 @@
         menu.classList.remove('open');
 
         if (url) {
-          window.open(url, '_blank', 'noopener');
+          // 同步模式：將 YouTube 交給五大類故事的播放器，不另開分頁。
+          const isYouTube = /^(https?:\/\/)?(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(url);
+          let delegated = false;
+          if (isYouTube && window.parent !== window) {
+            try {
+              if (window.parent.location.origin === window.location.origin) {
+                window.parent.postMessage({type:'fivestory-video-select-v5',url:url,title:item.textContent.trim()}, window.location.origin);
+                delegated = true;
+              }
+            } catch (_) { /* 無法使用父視窗時退回原網站操作 */ }
+          }
+          if (!delegated) window.open(url, '_blank', 'noopener');
         }
       });
     });
