@@ -1236,22 +1236,7 @@
 </div>
 
 
-<section class="comment-panel" aria-labelledby="comment-title">
-  <div class="comment-heading">
-    <div>
-      <p class="section-kicker">PERSONAL NOTES</p>
-      <h2 id="comment-title">我的註解與留言</h2>
-      <p>記下閱讀心得、影片重點，或留給未來自己的提醒。內容只會儲存在這台裝置的瀏覽器中。</p>
-    </div>
-    <button class="comment-clear" type="button" id="clearComments">清除全部</button>
-  </div>
-  <form class="comment-form" id="commentForm">
-    <input id="commentName" name="name" maxlength="30" placeholder="你的名字（選填）" />
-    <textarea id="commentText" name="text" maxlength="500" rows="4" placeholder="寫下註解或留言……" required></textarea>
-    <div class="comment-form-footer"><span id="commentCount">0 / 500</span><button class="comment-submit" type="submit">留下留言</button></div>
-  </form>
-  <div class="comment-list" id="commentList" aria-live="polite"></div>
-</section>
+
 </main>
 <script>
 
@@ -1438,47 +1423,6 @@
       }
     });
 
-    const commentStorageKey = 'xu-rong-zhe-resource-comments';
-    const commentForm = document.getElementById('commentForm');
-    const commentList = document.getElementById('commentList');
-    const commentText = document.getElementById('commentText');
-    const commentCount = document.getElementById('commentCount');
-    let comments = JSON.parse(localStorage.getItem(commentStorageKey) || '[]');
-
-    function escapeComment(value) {
-      return String(value).replace(/[&<>"']/g, function(char) {
-        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[char];
-      });
-    }
-
-    function renderComments() {
-      if (!comments.length) {
-        commentList.innerHTML = '<div class="comment-empty">還沒有留言，先寫下第一則吧！</div>';
-        return;
-      }
-      commentList.innerHTML = comments.map(function(comment) {
-        return '<article class="comment-item"><div class="comment-meta"><strong>' + escapeComment(comment.name || '匿名讀者') + '</strong><span>' + escapeComment(comment.date) + ' <button class="comment-delete" type="button" data-id="' + comment.id + '">刪除</button></span></div><p>' + escapeComment(comment.text) + '</p></article>';
-      }).join('');
-    }
-
-    commentText.addEventListener('input', function() { commentCount.textContent = commentText.value.length + ' / 500'; });
-    commentForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const text = commentText.value.trim();
-      if (!text) return;
-      comments.unshift({ id: Date.now(), name: document.getElementById('commentName').value.trim(), text: text, date: new Date().toLocaleString('zh-TW') });
-      localStorage.setItem(commentStorageKey, JSON.stringify(comments));
-      commentForm.reset(); commentCount.textContent = '0 / 500'; renderComments();
-    });
-    commentList.addEventListener('click', function(event) {
-      if (!event.target.dataset.id) return;
-      comments = comments.filter(function(comment) { return String(comment.id) !== event.target.dataset.id; });
-      localStorage.setItem(commentStorageKey, JSON.stringify(comments)); renderComments();
-    });
-    document.getElementById('clearComments').addEventListener('click', function() {
-      if (!comments.length || confirm('確定要清除全部留言嗎？')) { comments = []; localStorage.removeItem(commentStorageKey); renderComments(); }
-    });
-    renderComments();
   </script>
 <script>
 /* 如果 GitHub 尚未上傳 assets/ 圖片，隱藏失效圖片區與透明熱點，避免空白和重疊。 */
