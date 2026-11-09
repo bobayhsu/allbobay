@@ -798,7 +798,7 @@
     gap:20px;
   }
   .upper-layout::before {
-    content:"許榮哲創作書影片資源整理";
+    content:"許榮哲創作書影音資源整理";
     position:absolute;
     top:20px;
     left:0;
@@ -1006,6 +1006,11 @@
   .visual-zone { padding-top: 38px !important; margin-top: 20px !important; }
   .visual-zone::before { font-size: 11px !important; letter-spacing: .04em !important; }
 }
+</style>
+<style>/* 2026-11-09 優化：防止 LINE 等手機瀏覽器自動放大文字；電腦版大標題與副標不再重疊；手機版分類標題放大一點 */
+html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!important}
+@media (min-width:769px) and (pointer:fine){.upper-layout::before{line-height:1.2!important}.upper-layout::after{top:86px!important}.upper-layout{padding-top:124px!important}}
+@media (max-width:768px){.upper-layout summary span{font-size:13px!important;line-height:1.35}}
 </style>
 </head>
 <body>
