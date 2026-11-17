@@ -1008,6 +1008,26 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
 @media (min-width:769px) and (pointer:fine){.upper-layout::before{line-height:1.2!important}.upper-layout::after{top:86px!important}.upper-layout{padding-top:124px!important}}
 @media (max-width:768px){.upper-layout summary span{font-size:13px!important;line-height:1.35}}
 </style>
+<style id="reviews-202611">/* 2026-11-17 十三、微電影評論：清單＋閱讀視窗 */
+.rv-list{display:grid;gap:8px}
+.rv-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;padding:12px 14px;background:linear-gradient(135deg,#fffaf0,#fff);border:1px solid #f3d49a;border-radius:14px;cursor:pointer}
+.rv-item:hover{border-color:#d97706;box-shadow:0 4px 14px rgba(217,119,6,.15)}
+.rv-no{flex:0 0 auto;min-width:46px;text-align:center;font-size:12px;font-weight:900;color:#fff;background:#d97706;border-radius:999px;padding:4px 8px}
+.rv-meta{min-width:0;flex:1}
+.rv-title{margin:0;font-weight:900;color:#6c4a00;line-height:1.4}
+.rv-desc{margin:3px 0 0;color:#8a6a2c;font-size:13px;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+#rvModal{position:fixed;inset:0;z-index:9999;background:rgba(30,24,16,.55);display:none;align-items:center;justify-content:center;padding:16px}
+#rvModal.show{display:flex}
+#rvBox{position:relative;width:min(760px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#fffdf8;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.35);padding:28px clamp(18px,5vw,48px) 30px}
+#rvBox .rv-tag{display:inline-block;font-size:13px;font-weight:900;color:#fff;background:#d97706;border-radius:999px;padding:3px 12px}
+#rvBox h2{margin:10px 0 18px;font-size:clamp(22px,4.6vw,30px);line-height:1.35;color:#3d2a00}
+#rvBox p{margin:0 0 .9em;font-size:clamp(16px,3.8vw,18px);line-height:1.9;color:#2b2520;text-align:justify}
+#rvBox h3{margin:1.4em 0 .5em;font-size:clamp(17px,4vw,20px);color:#b45309}
+#rvBox .rv-foot{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid #f0e2c4}
+#rvBox .rv-foot button,#rvBox .rv-foot a{font:inherit;font-size:14px;font-weight:900;padding:9px 16px;border-radius:999px;border:1px solid #f3d49a;background:#fff;color:#6c4a00;cursor:pointer;text-decoration:none}
+#rvBox .rv-foot a{background:#d97706;color:#fff;border-color:#d97706}
+#rvClose{position:sticky;top:0;float:right;margin:-12px -16px 0 0;width:40px;height:40px;border-radius:50%;border:0;background:#f3e6cc;color:#6c4a00;font-size:22px;cursor:pointer}
+</style>
 </head>
 <body>
 <main class="slide">
@@ -1148,6 +1168,10 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
 <div class="custom-select"><button class="custom-select-button" type="button">故事賓果｜用故事回答問題（新版）</button><div class="custom-select-menu"><button class="custom-select-item" data-url="https://story-answer-bingo-new-2026.mystic-otter-0226.chatgpt.site" type="button">故事賓果｜用故事回答問題（新版）</button><button class="custom-select-item" data-url="https://character-target-formula-v2.mystic-otter-0226.chatgpt.site" type="button">人物靶心人公式</button><button class="custom-select-item" data-url="https://story-answer-bingo-2026.mystic-otter-0226.chatgpt.site" type="button">故事實果｜用故事回答問題</button><button class="custom-select-item" data-url="https://name-code-converter-2026.mystic-otter-0226.chatgpt.site" type="button">名字密碼轉換器</button></div></div>
 </div>
 </div>
+</details>
+<details class="card" id="reviewsCard">
+<summary><span class="icon">🎞️</span><span>十三、微電影評論</span></summary>
+<div class="content"><div class="rv-list" id="rvList"></div></div>
 </details>
 </div>
 </section>
@@ -1436,6 +1460,26 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
   }
   img.addEventListener('error',handleMissing);
   if(img.complete && img.naturalWidth===0)handleMissing();
+})();
+</script>
+<div id="rvModal" aria-hidden="true"><div id="rvBox" role="dialog" aria-modal="true"></div></div>
+<script src="reviews/reviews.js?v=1"></script>
+<script>/* 2026-11-17 十三、微電影評論 */
+(function(){
+  var R=window.REVIEWS||[],list=document.getElementById('rvList'),modal=document.getElementById('rvModal'),box=document.getElementById('rvBox');
+  if(!list)return;
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  list.innerHTML=R.map(function(r,i){var first=(r.b.find(function(x){return x[0]==='p';})||['',''])[1];
+    return '<button type="button" class="rv-item" data-i="'+i+'"><span class="rv-no">'+r.n+'</span><span class="rv-meta"><p class="rv-title">'+esc(r.t)+'</p><p class="rv-desc">'+esc(first)+'</p></span></button>';}).join('');
+  function open(i){i=(i+R.length)%R.length;var r=R[i];
+    box.innerHTML='<button type="button" id="rvClose" aria-label="關閉">×</button><span class="rv-tag">微電影評論 '+r.n+'</span><h2>'+esc(r.t)+'</h2>'+
+      r.b.map(function(x){return x[0]==='h'?'<h3>'+esc(x[1])+'</h3>':'<p>'+esc(x[1])+'</p>';}).join('')+
+      '<div class="rv-foot"><span><button type="button" data-go="'+(i-1)+'">‹ 上一篇</button> <button type="button" data-go="'+(i+1)+'">下一篇 ›</button></span><a href="reviews/'+encodeURI(r.f)+'" download>下載 Word 原稿</a></div>';
+    modal.classList.add('show');modal.setAttribute('aria-hidden','false');box.scrollTop=0;document.body.style.overflow='hidden';}
+  function close(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  list.addEventListener('click',function(e){var b=e.target.closest('.rv-item');if(b)open(+b.dataset.i);});
+  modal.addEventListener('click',function(e){if(e.target===modal||e.target.id==='rvClose'){close();return;}var g=e.target.closest('[data-go]');if(g)open(+g.dataset.go);});
+  addEventListener('keydown',function(e){if(!modal.classList.contains('show'))return;if(e.key==='Escape')close();});
 })();
 </script>
 </body>
