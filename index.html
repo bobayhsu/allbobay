@@ -1494,7 +1494,7 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
     if(!done)window.open(v.u,'_blank','noopener');}
   function vids(i){return V[String(R[i].n)]||[];}
   grid.innerHTML=R.map(function(r,i){var vs=vids(i),v=vs[0]||{};
-    return '<div class="rv-card"><button type="button" class="rv-thumb" data-p="'+i+'" aria-label="播放 '+esc(v.t||'')+'"><img loading="lazy" src="https://i.ytimg.com/vi/'+yid(v.u)+'/hqdefault.jpg" alt="" onerror="this.style.visibility=\'hidden\'"><span class="rv-no2">'+r.n+'</span>'+(vs.length>1?'<span class="rv-n2">共 '+vs.length+' 支</span>':'')+'</button>'+
+    return '<div class="rv-card"><button type="button" class="rv-thumb" data-p="'+i+'" aria-label="播放 '+esc(v.t||'')+'"><img loading="lazy" src="https://i.ytimg.com/vi/'+yid(v.u)+'/hqdefault.jpg" alt="" onerror="this.style.visibility=\'hidden\'"><span class="rv-no2">'+(i+1)+'</span>'+(vs.length>1?'<span class="rv-n2">共 '+vs.length+' 支</span>':'')+'</button>'+
       '<div class="rv-body"><h4>'+esc(r.t)+'</h4><p class="rv-film">🎬 '+vs.map(function(x){return esc(x.t);}).join('、')+'</p><div class="rv-btns"><button type="button" class="play" data-p="'+i+'">▶ 看影片</button><button type="button" data-r="'+i+'">📖 讀評論</button></div></div></div>';}).join('');
   grid.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
     if(b.dataset.r!=null){open(+b.dataset.r);return;}
@@ -1502,7 +1502,7 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
     if(vs.length===1){play(vs[0]);return;}
     open(i);});
   function open(i){i=(i+R.length)%R.length;cur=i;var r=R[i],vs=vids(i);
-    box.innerHTML='<button type="button" id="rvClose" aria-label="關閉">×</button><span class="rv-tag">微電影評論 '+r.n+'</span><h2>'+esc(r.t)+'</h2>'+
+    box.innerHTML='<button type="button" id="rvClose" aria-label="關閉">×</button><span class="rv-tag">微電影評論 '+(i+1)+'</span><h2>'+esc(r.t)+'</h2>'+
       (vs.length?'<div class="rv-act" style="margin:0 0 16px">'+vs.map(function(v,k){return '<button type="button" class="play" data-mv="'+k+'">▶ 看影片：'+esc(v.t)+'</button>';}).join('')+'</div>':'')+
       r.b.map(function(x){return x[0]==='h'?'<h3>'+esc(x[1])+'</h3>':'<p>'+esc(x[1])+'</p>';}).join('')+
       '<div class="rv-foot"><span><button type="button" data-go="'+(i-1)+'">‹ 上一篇</button> <button type="button" data-go="'+(i+1)+'">下一篇 ›</button></span><a href="reviews/'+encodeURI(r.f)+'" download>下載 Word 原稿</a></div>';
