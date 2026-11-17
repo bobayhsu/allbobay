@@ -1016,6 +1016,11 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
 .rv-meta{min-width:0;flex:1}
 .rv-title{margin:0;font-weight:900;color:#6c4a00;line-height:1.4}
 .rv-desc{margin:3px 0 0;color:#8a6a2c;font-size:13px;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.rv-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.rv-act button{font:inherit;font-size:14px;font-weight:900;padding:9px 16px;border-radius:999px;cursor:pointer;border:1px solid #f3d49a;background:#fff;color:#6c4a00}
+.rv-act button.play{background:#d97706;border-color:#d97706;color:#fff}
+.rv-act button.play.srch{background:#fff7e6;color:#b45309;border-color:#f3d49a}
+.rv-act small{flex:0 0 100%;color:#8a6a2c;font-size:12px}
 #rvModal{position:fixed;inset:0;z-index:9999;background:rgba(30,24,16,.55);display:none;align-items:center;justify-content:center;padding:16px}
 #rvModal.show{display:flex}
 #rvBox{position:relative;width:min(760px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#fffdf8;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.35);padding:28px clamp(18px,5vw,48px) 30px}
@@ -1173,13 +1178,10 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
 <summary><span class="icon">🎞️</span><span>十三、微電影評論</span></summary>
 <div class="content">
 <div class="dropdown-wrap">
-<span class="dropdown-title">看微電影</span>
-<div class="custom-select"><button class="custom-select-button" type="button">25｜海尼根 Worlds Apart</button><div class="custom-select-menu"><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=z3a8MdloAAM" type="button">25｜海尼根 Worlds Apart</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=J5TYcGGlvoU" type="button">28｜GS加德士 客服連結音</button><button class="custom-select-item" data-ytsearch="%E6%98%9F%E5%B7%B4%E5%85%8B%20%E5%BE%AE%E9%9B%BB%E5%BD%B1%20LINE%20%E7%B4%84%E6%9C%83%20%E8%87%89%E7%B4%85" type="button">31｜星巴克 Kelly 的約會 🔍</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=I6okB-cKV1w" type="button">37｜PS4 星際大戰宿敵</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=KvAJRL-fEcU" type="button">43｜雀巢 一輩子會認識八萬人（中字）</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=RiJJvgIMA7A" type="button">47｜泰國 Ele《Forever》</button><button class="custom-select-item" data-ytsearch="%E5%AE%89%E5%BE%97%E7%83%88%E9%A3%9F%E7%89%A9%E9%8A%80%E8%A1%8C%20%E5%90%83%E9%A3%AF%E4%B8%8D%E8%A9%B2%E6%98%AF%E4%B8%80%E7%A8%AE%E6%83%B3%E5%83%8F" type="button">57｜吃飯不該是一種想像 🔍</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=PueoWSAFTis" type="button">58｜Audi Q3 The Scripted Life</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=2kihk03A0KI" type="button">62｜剃鬚記 The Big Shave</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=YhID-_WNy98" type="button">74｜全世界最爛的工作（中字）</button><button class="custom-select-item" data-ytsearch="%E6%89%8B%E6%A9%9F%E6%8B%8D%E6%94%9D%E6%95%99%E5%AD%B8%20%E8%B7%9F%E8%91%97%E6%A8%A1%E7%89%B9%E8%B7%91%20%E5%B0%8D%E6%A8%B9%E6%97%8B%E8%BD%89" type="button">83｜手機拍攝教學 🔍</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=Fca0mTUrDJw" type="button">85｜Bianco 電梯 The Lift</button><button class="custom-select-item" data-ytsearch="LINE%20%E8%B3%87%E6%96%99%E8%BD%89%E7%A7%BB%20%E5%91%8A%E7%99%BD%20%E7%94%9F%E6%97%A5%20%E5%BE%AE%E9%9B%BB%E5%BD%B1" type="button">86｜LINE 前輩告白 🔍</button><button class="custom-select-item" data-ytsearch="%E5%9D%90%E4%BA%86%E6%95%B4%E5%A4%A9%E5%86%B7%E6%9D%BF%E5%87%B3%20%E5%85%92%E5%AD%90%E4%BD%A0%E9%9B%A3%E9%81%8E%E5%97%8E%20%E5%BE%AE%E9%9B%BB%E5%BD%B1" type="button">91｜坐了整天冷板凳 🔍</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=j_Q5s_LqxJ8" type="button">97｜賓士死神 Sorry</button><button class="custom-select-item" data-url="https://www.youtube.com/watch?v=afqXYKwy8NI" type="button">97｜BMW 女鬼</button></div></div>
-</div>
-<div class="dropdown-wrap">
-<span class="dropdown-title">讀評論</span>
+<span class="dropdown-title">選一篇（評論＋微電影）</span>
 <div class="custom-select"><button class="custom-select-button" type="button">25｜海尼根打開新世界</button><div class="custom-select-menu"><button class="custom-select-item" data-rv="0" type="button">25｜海尼根打開新世界</button><button class="custom-select-item" data-rv="1" type="button">28｜接線生的自我介紹</button><button class="custom-select-item" data-rv="2" type="button">31｜複眼人最愛的故事</button><button class="custom-select-item" data-rv="3" type="button">37｜火力四射的星際大愛</button><button class="custom-select-item" data-rv="4" type="button">43｜概念具象化的美麗人生</button><button class="custom-select-item" data-rv="5" type="button">47｜教科書等級的無恥</button><button class="custom-select-item" data-rv="6" type="button">57｜用概念收服人心：談兵當然在紙上，不然咧</button><button class="custom-select-item" data-rv="7" type="button">58｜概念綁架了創意，創意綁架了故事</button><button class="custom-select-item" data-rv="8" type="button">62｜那個男人叫美國，或者甘迺迪</button><button class="custom-select-item" data-rv="9" type="button">74｜全世界最爛的工作</button><button class="custom-select-item" data-rv="10" type="button">83｜沒有顏值，不會演戲，超──勵志</button><button class="custom-select-item" data-rv="11" type="button">85｜電梯巧、無聲妙，本能最巧妙</button><button class="custom-select-item" data-rv="12" type="button">86｜前輩撩少女，伏筆砸讀者</button><button class="custom-select-item" data-rv="13" type="button">91｜如何寫作：讓配角活成主角</button><button class="custom-select-item" data-rv="14" type="button">97｜見鬼了，一個步驟的故事法</button></div></div>
 </div>
+<div class="rv-act" id="rvAct"></div>
 </div>
 </details>
 </div>
@@ -1473,21 +1475,32 @@ html,body,*{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!import
 </script>
 <div id="rvModal" aria-hidden="true"><div id="rvBox" role="dialog" aria-modal="true"></div></div>
 <script src="reviews/reviews.js?v=1"></script>
-<script>/* 2026-11-17 十三、微電影評論：下拉選單（看影片／讀評論）＋閱讀視窗 */
+<script>/* 2026-11-17 十三、微電影評論：一個下拉選單，每篇評論和它的微電影放在一起 */
 (function(){
-  var R=window.REVIEWS||[],modal=document.getElementById('rvModal'),box=document.getElementById('rvBox');
+  var R=window.REVIEWS||[],V={"25": [{"u": "https://www.youtube.com/watch?v=z3a8MdloAAM", "s": false, "t": "海尼根 Worlds Apart"}], "28": [{"u": "https://www.youtube.com/watch?v=J5TYcGGlvoU", "s": false, "t": "GS加德士 客服連結音"}], "31": [{"u": "https://www.youtube.com/results?search_query=%E6%98%9F%E5%B7%B4%E5%85%8B%20%E5%BE%AE%E9%9B%BB%E5%BD%B1%20LINE%20%E7%B4%84%E6%9C%83%20%E8%87%89%E7%B4%85", "s": true, "t": "星巴克 Kelly 的約會"}], "37": [{"u": "https://www.youtube.com/watch?v=I6okB-cKV1w", "s": false, "t": "PS4 星際大戰宿敵"}], "43": [{"u": "https://www.youtube.com/watch?v=KvAJRL-fEcU", "s": false, "t": "雀巢 一輩子會認識八萬人（中字）"}], "47": [{"u": "https://www.youtube.com/watch?v=RiJJvgIMA7A", "s": false, "t": "泰國 Ele《Forever》"}], "57": [{"u": "https://www.youtube.com/results?search_query=%E5%AE%89%E5%BE%97%E7%83%88%E9%A3%9F%E7%89%A9%E9%8A%80%E8%A1%8C%20%E5%90%83%E9%A3%AF%E4%B8%8D%E8%A9%B2%E6%98%AF%E4%B8%80%E7%A8%AE%E6%83%B3%E5%83%8F", "s": true, "t": "吃飯不該是一種想像"}], "58": [{"u": "https://www.youtube.com/watch?v=PueoWSAFTis", "s": false, "t": "Audi Q3 The Scripted Life"}], "62": [{"u": "https://www.youtube.com/watch?v=2kihk03A0KI", "s": false, "t": "剃鬚記 The Big Shave"}], "74": [{"u": "https://www.youtube.com/watch?v=YhID-_WNy98", "s": false, "t": "全世界最爛的工作（中字）"}], "83": [{"u": "https://www.youtube.com/results?search_query=%E6%89%8B%E6%A9%9F%E6%8B%8D%E6%94%9D%E6%95%99%E5%AD%B8%20%E8%B7%9F%E8%91%97%E6%A8%A1%E7%89%B9%E8%B7%91%20%E5%B0%8D%E6%A8%B9%E6%97%8B%E8%BD%89", "s": true, "t": "手機拍攝教學"}], "85": [{"u": "https://www.youtube.com/watch?v=Fca0mTUrDJw", "s": false, "t": "Bianco 電梯 The Lift"}], "86": [{"u": "https://www.youtube.com/results?search_query=LINE%20%E8%B3%87%E6%96%99%E8%BD%89%E7%A7%BB%20%E5%91%8A%E7%99%BD%20%E7%94%9F%E6%97%A5%20%E5%BE%AE%E9%9B%BB%E5%BD%B1", "s": true, "t": "LINE 前輩告白"}], "91": [{"u": "https://www.youtube.com/results?search_query=%E5%9D%90%E4%BA%86%E6%95%B4%E5%A4%A9%E5%86%B7%E6%9D%BF%E5%87%B3%20%E5%85%92%E5%AD%90%E4%BD%A0%E9%9B%A3%E9%81%8E%E5%97%8E%20%E5%BE%AE%E9%9B%BB%E5%BD%B1", "s": true, "t": "坐了整天冷板凳"}], "97": [{"u": "https://www.youtube.com/watch?v=j_Q5s_LqxJ8", "s": false, "t": "賓士死神 Sorry"}, {"u": "https://www.youtube.com/watch?v=afqXYKwy8NI", "s": false, "t": "BMW 女鬼"}]},modal=document.getElementById('rvModal'),box=document.getElementById('rvBox'),act=document.getElementById('rvAct'),cur=0;
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function open(i){i=(i+R.length)%R.length;var r=R[i];
+  function play(v){
+    if(v.s){window.open(v.u,'_blank','noopener');return;}
+    var done=false;
+    if(window.parent!==window){try{if(window.parent.location.origin===location.origin){window.parent.postMessage({type:'fivestory-video-select-v5',url:v.u,title:v.t},location.origin);done=true;}}catch(_){}}
+    if(!done)window.open(v.u,'_blank','noopener');
+  }
+  function pick(i){cur=i;var r=R[i],vs=V[String(r.n)]||[];
+    act.innerHTML=vs.map(function(v,k){return '<button type="button" class="play'+(v.s?' srch':'')+'" data-v="'+k+'">'+(v.s?'🔍 搜尋影片':'▶ 看影片')+(vs.length>1?'：'+esc(v.t):'')+'</button>';}).join('')+
+      '<button type="button" data-read="1">📖 讀評論</button>'+(vs.some(function(v){return v.s;})?'<small>這支還沒有確定的網址，會開 YouTube 搜尋。</small>':'');}
+  act.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.read){open(cur);return;}var v=(V[String(R[cur].n)]||[])[+b.dataset.v];if(v)play(v);});
+  function open(i){i=(i+R.length)%R.length;var r=R[i],vs=V[String(r.n)]||[];
     box.innerHTML='<button type="button" id="rvClose" aria-label="關閉">×</button><span class="rv-tag">微電影評論 '+r.n+'</span><h2>'+esc(r.t)+'</h2>'+
+      (vs.length?'<div class="rv-act" style="margin:0 0 16px">'+vs.map(function(v,k){return '<button type="button" class="play'+(v.s?' srch':'')+'" data-mv="'+k+'">'+(v.s?'🔍 搜尋影片':'▶ 看影片')+(vs.length>1?'：'+esc(v.t):'')+'</button>';}).join('')+'</div>':'')+
       r.b.map(function(x){return x[0]==='h'?'<h3>'+esc(x[1])+'</h3>':'<p>'+esc(x[1])+'</p>';}).join('')+
       '<div class="rv-foot"><span><button type="button" data-go="'+(i-1)+'">‹ 上一篇</button> <button type="button" data-go="'+(i+1)+'">下一篇 ›</button></span><a href="reviews/'+encodeURI(r.f)+'" download>下載 Word 原稿</a></div>';
-    modal.classList.add('show');modal.setAttribute('aria-hidden','false');box.scrollTop=0;document.body.style.overflow='hidden';}
-  function close(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-  document.querySelectorAll('#reviewsCard [data-rv]').forEach(function(b){b.addEventListener('click',function(){open(+b.dataset.rv);});});
-  /* 還沒找到確定網址的片：開新分頁到 YouTube 搜尋 */
-  document.querySelectorAll('#reviewsCard [data-ytsearch]').forEach(function(b){b.addEventListener('click',function(){window.open('https://www.youtube.com/results?search_query='+b.dataset.ytsearch,'_blank','noopener');});});
-  modal.addEventListener('click',function(e){if(e.target===modal||e.target.id==='rvClose'){close();return;}var g=e.target.closest('[data-go]');if(g)open(+g.dataset.go);});
+    cur=i;modal.classList.add('show');modal.setAttribute('aria-hidden','false');box.scrollTop=0;document.body.style.overflow='hidden';}
+  function close(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';pick(cur);
+    var btn=document.querySelector('#reviewsCard .custom-select-button');if(btn)btn.textContent=R[cur].n+'｜'+R[cur].t;}
+  document.querySelectorAll('#reviewsCard [data-rv]').forEach(function(b){b.addEventListener('click',function(){pick(+b.dataset.rv);});});
+  modal.addEventListener('click',function(e){if(e.target===modal||e.target.id==='rvClose'){close();return;}var g=e.target.closest('[data-go]');if(g){open(+g.dataset.go);return;}var m=e.target.closest('[data-mv]');if(m){var v=(V[String(R[cur].n)]||[])[+m.dataset.mv];if(v)play(v);}});
   addEventListener('keydown',function(e){if(modal.classList.contains('show')&&e.key==='Escape')close();});
+  pick(0);
 })();
 </script>
 </body>
